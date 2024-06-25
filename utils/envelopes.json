@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Atil",
+        "initial_amount": 500,
+        "current_balance": 1200
+    },
+    {
+        "id": 2,
+        "name": "Ekaterina",
+        "montant_initial": 580000,
+        "current_balance": 2600
+    }
+]

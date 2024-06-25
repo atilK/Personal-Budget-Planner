@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Allowance</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="index.js" type="module" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>API Budget Allowance</h1>
+        <p>
+            Welcome to your budget envelope management application.</p>
+    </header>
+
+
+    <main>
+        <section class="envelopes">
+            <h2>My Budget Envelope</h2>
+            <table id="table-envelopes">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Initial Amount</th>
+                        <th>Currenct Balance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </section>
+
+        <section class="transfer-envelope">
+            <h2>Transfer money between envelopes</h2>
+            <form action="/envelopes/transfer" id="transfer-form" method="post">
+                <div>
+                    <label for="source-envelope">Source Envelope</label>
+                    <select name="source-envelope" id="source-envelope" required>
+                        <option value="">...</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="destination-envelope">Destination Envelope</label>
+                    <select name="destination-envelope" id="destination-envelope" required>
+                        <option value="">...</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="transfer-amount">Amount of Transfer</label>
+                    <input type="number" name="transfer-amount" id="transfer-amount" required step="0.01">
+                </div>
+                <button type="submit">To Transfer</button>
+            </form>
+        </section>
+
+        <section class="create-envelope">
+            <h2>Create a New Envelope</h2>
+            
+            <form action='/envelopes' id="budget-form" method="post">
+                <div>
+                    <label for="budget-name">Name</label>
+                    <input type="text" name="budget-name" id="budget-name" required value="Gaz">
+                </div>
+                <div>
+                    <label for="initial-amount">Initial Amount</label>
+                    <input type="number" name="initial-amount" id="initial-amount" required value="200">
+                </div>
+                <div>
+                    <label for="current-balance">Currenct Balance</label>
+                    <input type="number" name="current-balance" id="current-balance" required value="50">
+                </div>
+                <!-- Add any necessary fields here -->
+                <button type="submit">Create</button>
+            </form>
+
+        </section>
+        <section class="edit-envelope">
+            <h2>Edit an Envelope</h2>
+            <form action='/envelopes/:id' id="update-form" method="post">
+                <div>
+                    <label for="budget-name">Select the budget to modify.</label>
+                    <select name="selected-envelope" id="selected-envelope">
+                        <option value="">...</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="updated-initial-amount">Initial Amount</label>
+                    <input type="number" name="updated-initial-amount" id="updated-initial-amount" required step="0.01">
+                </div>
+                <div>
+                    <label for="updated-current-balance">Current Balance</label>
+                    <input type="number" name="updated-current-balance" id="updated-current-balance" required
+                        step="0.01">
+                </div>
+
+                <!-- Add any necessary fields here -->
+                <button type="submit">Update</button>
+            </form>
+
+        </section>
+    </main>
+
+
+
+
+</body>
+
+</html>
